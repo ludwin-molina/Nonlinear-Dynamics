@@ -1,9 +1,10 @@
-function [s,ix,iy,D]=dtw_mvx(A,B,d)
+function [s,ix,iy,D]=dtw_mv(A,B,d)
+
 %INPUTS
 %A is the time series 1
 %B is the time series 2
-%d is the selected distance. It could be 'squared','absolute' or
-%'euclidean'
+%d is the selected distance. It could be 'squared','absolute' or 'euclidean'
+
 %Outputs
 %s is the calculated distance between the time series
 %ix is the vector order of the time series 1
@@ -11,6 +12,7 @@ function [s,ix,iy,D]=dtw_mvx(A,B,d)
 
 A=normalize(A);
 B=normalize(B);
+
 N=size(A,1);
 M=size(B,1);
 DTW=zeros(N,M);
@@ -80,8 +82,7 @@ switch d
         end
         
     otherwise
-        disp('please define a measurement')
-        
+        disp('please define a measurement')   
 end
 
 
